@@ -1,0 +1,132 @@
+@use "./variables.scss" as *;
+@use "./breakpoints.scss" as *;
+
+.navbar {
+  padding: 12px 60px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  background: whitesmoke;
+  color: $white;
+  border-bottom: 1px solid $darkgrey;
+
+  @include sm {
+    padding: 10px 20px;
+  }
+
+  img {
+    width: 120px;
+    cursor: pointer;
+    filter: drop-shadow(0 2px 5px rgba(0,0,0,0.2));
+  }
+
+  &_search {
+    border: 1px solid $lightgrey;
+    border-radius: 30px;
+    height: 48px;
+    padding: 0px 20px;
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    background: $white;
+    transition: all 0.3s ease;
+
+    input {
+      border: none;
+      outline: none;
+      font-size: $font-medium;
+      color: $darkgrey;
+      width: 100%;
+    }
+
+    &:hover {
+      @include shadow;
+      transform: translateY(-1px);
+    }
+
+    @include lg {
+      display: none;
+    }
+  }
+
+  &_right {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+
+    .host {
+      text-decoration: none;
+      color: $blue;
+      font-weight: 700;
+      cursor: pointer;
+      transition: color 0.3s ease;
+
+      &:hover {
+        color: $blue-start;
+      }
+
+      @include sm {
+        display: none;
+      }
+    }
+
+    &_account {
+      height: 48px;
+      display: flex;
+      align-items: center;
+      padding: 0 12px;
+      border: 1px solid $lightgrey;
+      border-radius: 30px;
+      background-color: $white;
+      cursor: pointer;
+      gap: 12px;
+      transition: all 0.3s ease;
+
+      &:hover {
+        @include shadow;
+        transform: translateY(-1px);
+      }
+
+      img {
+        width: 36px;
+        height: 36px;
+        border-radius: 50%;
+        object-fit: cover;
+      }
+    }
+
+    &_accountmenu {
+      position: absolute;
+      background-color: $white;
+      right: 60px;
+      top: 80px;
+      display: flex;
+      flex-direction: column;
+      width: 220px;
+      padding: 12px 0;
+      border: 1px solid $lightgrey;
+      border-radius: 20px;
+      @include shadow;
+      z-index: 9999;
+
+      @include sm {
+        right: 20px;
+      }
+
+      a {
+        width: 100%;
+        padding: 10px 18px;
+        text-decoration: none;
+        color: $blue;
+        font-weight: 600;
+        transition: all 0.3s ease;
+
+        &:hover {
+          color: $blue-start;
+          background-color: rgba(217, 213, 213, 0.15);
+        }
+      }
+    }
+  }
+}

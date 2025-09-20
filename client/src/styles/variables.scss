@@ -1,0 +1,60 @@
+@use "sass:color";
+
+// Color Palette
+$pinkred: #F8395A;
+$blue: #24355A;
+$blue-start: #4facfe;
+$blue-end: #00f2fe;
+$lightgrey: #F7F8F8;
+$grey: #bdb9b9;
+$darkgrey: #969393;
+$white: #ffffff;
+$black-transparent: rgba(0,0,0,0.5);
+
+// Brand Gradients
+$gradient-primary: linear-gradient(135deg, $blue-start, $blue-end);
+$gradient-danger: linear-gradient(
+  135deg,
+  $pinkred,
+  color.adjust($pinkred, $lightness: -10%)
+);
+
+// Shadows
+@mixin shadow {
+  box-shadow: 0 3px 10px 2px rgba(0, 0, 0, 0.2);
+}
+
+// Button Styles
+@mixin buttonStyle($color-start: $blue-start, $color-end: $blue-end) {
+  padding: 12px 20px;
+  font-size: 18px;
+  font-weight: 600;
+  color: $white;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  background: linear-gradient(135deg, $color-start, $color-end);
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+  transition: all 0.3s;
+
+  &:hover {
+    box-shadow: 0 6px 20px rgba(0,0,0,0.4);
+    transform: translateY(-2px);
+  }
+}
+
+// Typography
+$font-small: 13px;
+$font-medium: 14px;
+$font-large: 16px;
+
+// Export variables (for JS if needed)
+:export {
+  pinkred: $pinkred;
+  blueStart: $blue-start;
+  blueEnd: $blue-end;
+  lightgrey: $lightgrey;
+  grey: $grey;
+  darkgrey: $darkgrey;
+  white: $white;
+}
